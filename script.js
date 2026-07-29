@@ -17,7 +17,7 @@ const commands = {
     • <a href="https://github.com" target="_blank" style="color:#00ff66">Ansible-Playbooks</a> - Automação de EDR em larga escala<br>
     • <a href="https://github.com" target="_blank" style="color:#00ff66">Security-Automation</a> - Scripts de resposta a incidentes
   `,
-  contact: `Email: seu-email@dominio.com | LinkedIn: linkedin.com/in/seu-perfil | GitHub: github.com/seu-usuario`
+  contact: `Email: alexandresilvaoficial1@gmail.com | LinkedIn: https://www.linkedin.com/in/alexandre-silva-37b6a1153/ | GitHub: https://asaw1982.github.io/Aleporti/`
 };
 
 input.addEventListener('keydown', function (e) {
