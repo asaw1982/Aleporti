@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alexandre | Cybersecurity & Automation</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* Estilos do Canvas Matrix de Fundo */
+    #matrix-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1; /* Fica atrás do conteúdo */
+      opacity: 0.22; /* Fundo transparente e discreto para não atrapalhar a leitura */
+      pointer-events: none;
+    }
+
+    /* Ajuste no container para garantir legibilidade */
+    .main-terminal {
+      background: rgba(12, 13, 14, 0.85); /* Fundo sutilmente escurecido */
+      border: 1px solid rgba(0, 255, 102, 0.2);
+      border-radius: 6px;
+      padding: 1.5rem;
+      backdrop-filter: blur(2px);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Canvas da Animação Matrix -->
+  <canvas id="matrix-canvas"></canvas>
+
+  <div class="container">
+    <div class="main-terminal">
+      <div class="ascii">
+        <pre class="ascii-art" role="img" aria-label="---4L3X4NDR3">
+██╗  ██╗██╗      ███████╗██╗  ██╗██╗  ██╗███╗   ██╗██████╗ ██████╗ ███████╗
+██║  ██║██║      ╚════██║╚██╗██╔╝██║  ██║████╗  ██║██╔══██╗██╔══██╗╚════██║
+███████║██║       █████╔╝ ╚███╔╝ ███████║██╔██╗ ██║██║  ██║██████╔╝  █████╔╝
+╚════██║██║       ╚═══██╗ ██╔██╗ ╚════██║██║╚██╗██║██║  ██║██╔══██╗  ╚═══██╗
+     ██║███████╗███████║██╔╝ ██╗     ██║██║ ╚████║██████╔╝██║  ██║███████║
+     ╚═╝╚══════╝╚══════╝╚═╝  ╚═╝     ╚═╝╚═╝  ╚═══╝╚═════╝ ╚═╝  ╚═╝╚══════╝</pre>
+      </div>
+
+      <p class="subtitle">Cybersecurity Engineer & Automation Specialist • Portfolio</p>
+      <p class="help-notice">Digite um comando abaixo ou <span class="cmd-highlight">'help'</span> para ver a lista.</p>
+
+      <div id="output"></div>
+
+      <div class="input-line">
+        <span class="prompt">visitor@alexandre:~$</span>
+        <input type="text" id="command-input" autofocus autocomplete="off" spellcheck="false">
+      </div>
+    </div>
+
+    <!-- Foto de perfil CRT/CÂMERA -->
+    <div class="profile-card">
+      <img src="https://github.com/asaw1982.png" alt="Profile" id="avatar">
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+
+  <!-- Script da Animação Matrix -->
+  <script>
+    const canvas = document.getElementById('matrix-canvas');
+    const ctx = canvas.getContext('2d');
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    // Caracteres estilo Matrix (Números, Hex, Símbolos)
+    const chars = '0123456789ABCDEFABCDEFGHIJKLMNOPQRSTUVWXYZ@#$%&*';
+    const fontSize = 14;
+    let columns = Math.floor(canvas.width / fontSize);
+    let drops = Array(columns).fill(1);
+
+    function drawMatrix() {
+      // Cria o rastro suave ao apagar o quadro anterior
+      ctx.fillStyle = 'rgba(12, 13, 14, 0.08)';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      ctx.fillStyle = '#00ff66'; // Cor verde idêntica à fonte do site
+      ctx.font = fontSize + 'px monospace';
+
+      for (let i = 0; i < drops.length; i++) {
+        const text = chars.charAt(Math.floor(Math.random() * chars.length));
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+          drops[i] = 0;
+        }
+        drops[i]++;
+      }
+    }
+
+    setInterval(drawMatrix, 35);
+  </script>
+</body>
+</html>
