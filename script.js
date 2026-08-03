@@ -14,8 +14,8 @@ const commands = {
   skills: `Ansible / AWX | PowerShell & Bash | SentinelOne | Wazuh | Python | Linux & Windows Server`,
   experience: `Atuação na automação e sustentação de parques com milhares de endpoints, desenvolvimento de scripts EDR/SIEM e gerenciamento de politicas de segurança.`,
   projects: `
-    • <a href="https://github.com" target="_blank" style="color:#00ff66">Ansible-Playbooks</a> - Automação de EDR em larga escala<br>
-    • <a href="https://github.com" target="_blank" style="color:#00ff66">Security-Automation</a> - Scripts de resposta a incidentes
+    • <a href="https://asaw1982.github.io/teste/" target="_blank" style="color:#00ff66">Ansible-Playbooks</a> - Automação de EDR em larga escala<br>
+    • <a href="https://asaw1982.github.io/soc/" target="_blank" style="color:#00ff66">Security-Automation</a> - Scripts de resposta a incidentes
   `,
   contact: `Email: alexandresilvaoficial1@gmail.com | LinkedIn: https://www.linkedin.com/in/alexandre-silva-37b6a1153/ | GitHub: https://asaw1982.github.io/Aleporti/`
 };
